@@ -1,8 +1,10 @@
-package week2.hotel;
+package week3.hotel;
 
 /**
  * Created by jotte on 19-12-16.
  */
+
+import week2.hotel.Guest;
 
 /**
  * Hotel room with number and possibly a guest.
@@ -26,7 +28,7 @@ public class Room {
      */
     public Room(int no) {
         number = no;
-        safe = new Safe();
+        this.safe = safe;
     }
 
     // ------------------ Queries --------------------------
@@ -64,5 +66,9 @@ public class Room {
 
     public Safe getSafe() {
         return safe;
+    }
+
+    public void setSafe(Safe safe) {
+        this.safe = safe;
     }
 }

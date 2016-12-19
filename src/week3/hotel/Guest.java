@@ -1,4 +1,6 @@
-package week2.hotel;
+package week3.hotel;
+
+import week2.hotel.Room;
 
 /**
  * Created by jotte on 19-12-16.
@@ -6,7 +8,7 @@ package week2.hotel;
 
 public class Guest {
     private String name;
-    private Room room;
+    private week2.hotel.Room room;
 
     // ----------------- Constructor ------------------
     public Guest(String n) {
@@ -20,7 +22,7 @@ public class Guest {
     }
 
     //Returns the Room that is rented by this Guest.
-    public Room getRoom() {
+    public week2.hotel.Room getRoom() {
         return room;
 
     }
