@@ -6,12 +6,11 @@ package week2.hotel;
 public class Safe {
 
     private Password pass = new Password();
-    private boolean active;
-    private boolean open;
-    private Safe safe = new Safe();
+    private boolean active = false;
+    private boolean open = false;
 
     //@ requires !password.equals("");
-    //@ ensures pass.testWord(password) ==> active == true;
+    //@ ensures pass.testWord(password) ==> isActive();
     public boolean activate(String password) {
         boolean result;
         assert !password.equals("");
@@ -25,7 +24,7 @@ public class Safe {
         return result;
     }
 
-    //@ ensures !active && !open;
+    //@ ensures !isActive() && !isOpen();
     public void deactivate() {
         active = false;
         open = false;
@@ -33,13 +32,13 @@ public class Safe {
     }
 
     //@ requires password != "";
-    //@ ensures (pass.testWord(password) && active) ? open == true : open == true || open == false;
+    //@ ensures (pass.testWord(password) && isActive()) ? isOpen() : !isOpen();
     public void open(String password) {
-        assert password != "";
+        assert !password.equals("");
         if (pass.testWord(password) && active) {
             open = true;
         }
-        assert pass.testWord(password) && active ? open == true : open == true || open == false;
+        assert pass.testWord(password) && active ? open == true : open == false;
     }
 
     //@ ensures open == false;

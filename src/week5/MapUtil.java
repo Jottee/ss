@@ -1,8 +1,6 @@
 package week5;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MapUtil {
     //@requires map.keySet().size() >= 0;
@@ -28,13 +26,20 @@ public class MapUtil {
         Set<K> allKeys = new HashSet<K>();
         for (K key : map.keySet())
             allKeys.add(key);
-        
-        return null;
+        Map inverseMap = new HashMap<V, Set<K>;
+        List<V> allValues = new ArrayList<V>();
+        for (K key : allKeys) {
+            allValues.add(map.get(key));
+        }
+        for (V vally : allValues) {
+            inverseMap.put(vally, allKeys);
+        }
+        return inverseMap;
     }
 
     public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.3
-        return null;
+        if ()
+            return null;
     }
 
     public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {

@@ -25,7 +25,7 @@ public class Rectangle {
      */
     //@ ensures \result >= 0;
     public int length() {
-        return 0;
+        return this.length;
     }
 
     /**
@@ -33,7 +33,7 @@ public class Rectangle {
      */
     //@ ensures \result >= 0;
     public int width() {
-        return 0;
+        return this.width;
     }
 
     /**
@@ -49,6 +49,6 @@ public class Rectangle {
      */
     //@ ensures \result == 2*length() + 2*width();
     public int perimeter() {
-        return 0;
+        return 2 * this.length + 2 * this.width;
     }
 }

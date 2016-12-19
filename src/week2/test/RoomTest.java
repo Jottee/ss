@@ -6,6 +6,7 @@ import week2.hotel.Guest;
 import week2.hotel.Room;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class RoomTest {
     private Guest guest;
@@ -26,5 +27,10 @@ public class RoomTest {
     public void testSetGuest() {
         room.setGuest(guest);
         assertEquals(guest, room.getGuest());
+    }
+
+    @Test
+    public void testSafe() {
+        assertNotNull(room.getSafe());
     }
 }

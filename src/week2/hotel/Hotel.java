@@ -28,27 +28,29 @@ public class Hotel {
      */
     private static Safe safe = new Safe();
     public static Password pass = new Password();
-    private static Room room1;
-    private static Room room2;
     private String name;
+    private Room room1;
+    private Room room2;
     private Guest guest = new Guest(name);
     private String hotelName;
 
     public Hotel(String h) {
+        room1 = new Room(1);
+        room2 = new Room(2);
         hotelName = h;
     }
 
     public Room checkIn(String password, String guestName) {
-        if (pass.testWord(password)
-                && !(room1.getGuest().getName().equals(guestName)
-                || room2.getGuest().getName().equals(guestName))
+        if (pass.testWord(password) && getRoom(guestName) == null
                 && getFreeRoom() != null) {
             if (room1.getGuest() == null) {
-                guest.checkin(room1);
-                return guest.getRoom();
+                Guest g = new Guest(guestName);
+                g.checkin(room1);
+                return g.getRoom();
             } else {
-                guest.checkin(room2);
-                return guest.getRoom();
+                Guest g = new Guest(guestName);
+                g.checkin(room2);
+                return g.getRoom();
             }
         } else {
             return null;
@@ -57,11 +59,12 @@ public class Hotel {
 
 
     public void checkOut(String guestName) {
-        if (room1.getGuest() != null && room1.getGuest().equals(guest)) {
-            room1.setGuest(null);
+        Guest g = new Guest(guestName);
+        if (room1.getGuest() != null && room1.getGuest().getName().equals(g.getName())) {
+            room1.getGuest().checkout();
         }
-        if (room2.getGuest() != null && room2.getGuest().equals(guest)) {
-            room2.setGuest(null);
+        if (room2.getGuest() != null && room2.getGuest().getName().equals(g.getName())) {
+            room2.getGuest().checkout();
         }
     }
 
@@ -79,10 +82,10 @@ public class Hotel {
     }
 
     public Room getRoom(String guestName) {
-        assert guest != null;
-        if (room1.getGuest() != null && room1.getGuest().equals(guest)) {
+        Guest g = new Guest(guestName);
+        if (room1.getGuest() != null && room1.getGuest().getName().equals(g.getName())) {
             return room1;
-        } else if (room2.getGuest() != null && room2.getGuest().equals(guest)) {
+        } else if (room2.getGuest() != null && room2.getGuest().getName().equals(g.getName())) {
             return room2;
         } else
             return null;

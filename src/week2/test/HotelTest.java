@@ -3,8 +3,7 @@ package week2.test;
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
-import week2.hotel.Password;
-import week2.hotel.Safe;
+import week2.hotel.*;
 
 import static org.junit.Assert.*;
 
