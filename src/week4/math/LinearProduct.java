@@ -1,4 +1,4 @@
-package week4.maths;
+package week4.math;
 
 /**
  * Created by jotte on 22-12-16.

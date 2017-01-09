@@ -1,4 +1,4 @@
-package week5;
+package week5.tictactoe;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;

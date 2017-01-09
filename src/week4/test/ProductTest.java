@@ -1,10 +1,10 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week4.math.Constant;
-import ss.week4.math.Product;
-import ss.week4.math.Sum;
+import week4.math.Constant;
+import week4.math.Product;
+import week4.math.Sum;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

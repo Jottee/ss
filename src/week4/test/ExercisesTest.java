@@ -1,7 +1,7 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Test;
-import ss.week4.Exercises;
+import week4.Exercises;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -11,7 +11,7 @@ public class ExercisesTest {
     public void testCountNegativeNumbers() {
         assertEquals(0, Exercises.countNegativeNumbers(new int[]{}));
         assertEquals(0, Exercises.countNegativeNumbers(new int[]{1}));
-        assertEquals(3, Exercises.countNegativeNumbers(new int[]{1,2,3,0,-1,-2,-3}));
+        assertEquals(3, Exercises.countNegativeNumbers(new int[]{1, 2, 3, 0, -1, -2, -3}));
     }
 
     @Test

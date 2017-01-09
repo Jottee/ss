@@ -1,13 +1,11 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week4.tictactoe.Board;
-import ss.week4.tictactoe.Mark;
+import week4.tictactoe.Board;
+import week4.tictactoe.Mark;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BoardTest {
     private Board board;

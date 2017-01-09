@@ -1,7 +1,7 @@
 package week5.test;
 
 import org.junit.Test;
-import week5.MapUtil;
+import week5.tictactoe.MapUtil;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package week5;
+package week5.tictactoe;
 
 import java.util.*;
 
@@ -26,7 +26,7 @@ public class MapUtil {
         Set<K> allKeys = new HashSet<K>();
         for (K key : map.keySet())
             allKeys.add(key);
-        Map inverseMap = new HashMap<V, Set<K>;
+        Map<V, Set<K>> inverseMap = new HashMap<V, Set<K>>();
         List<V> allValues = new ArrayList<V>();
         for (K key : allKeys) {
             allValues.add(map.get(key));
@@ -47,12 +47,23 @@ public class MapUtil {
     }
 
     public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
-
-        return false;
+        //values van f in keys van g
+        boolean compat = true;
+        for (V val : f.values()) {
+            if (!g.containsKey(val)) {
+                compat = false;
+            }
+        }
+        return compat;
     }
 
     public static <K, V, W> Map<K, W> compose(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.5
-        return null;
+        Map<K, W> cmpsd = new HashMap<K, W>();
+        for (K key : f.keySet()) {
+            V gkey = f.get(key);
+            W gval = g.get(gkey);
+            cmpsd.put(key, gval);
+        }
+        return cmpsd;
     }
 }

@@ -2,7 +2,7 @@ package week5.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import week5.MapUtil;
+import week5.tictactoe.MapUtil;
 
 import java.util.HashMap;
 import java.util.Map;

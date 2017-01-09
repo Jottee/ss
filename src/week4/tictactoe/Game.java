@@ -1,10 +1,10 @@
-package ss.week4.tictactoe;
+package week4.tictactoe;
 
 import java.util.Scanner;
 
 /**
  * Class for maintaining the Tic Tac Toe game. Lab assignment Module 2
- * 
+ *
  * @author Theo Ruys en Arend Rensink
  * @version $Revision: 1.4 $
  */
@@ -45,13 +45,12 @@ public class Game {
       requires s0 != null;
       requires s1 != null;
      */
+
     /**
      * Creates a new Game object.
-     * 
-     * @param s0
-     *            the first player
-     * @param s1
-     *            the second player
+     *
+     * @param s0 the first player
+     * @param s1 the second player
      */
     public Game(Player s0, Player s1) {
         board = new Board();
@@ -83,13 +82,11 @@ public class Game {
      * from standard in and compares it to the parameters for yes and no. If the
      * user inputs a different value, the prompt is repeated and te method reads
      * input again.
-     * 
-     * @parom prompt the question to print
-     * @param yes
-     *            the String corresponding to a yes answer
-     * @param no
-     *            the String corresponding to a no answer
+     *
+     * @param yes the String corresponding to a yes answer
+     * @param no  the String corresponding to a no answer
      * @return true is the yes answer is typed, false if the no answer is typed
+     * @parom prompt the question to print
      */
     private boolean readBoolean(String prompt, String yes, String no) {
         String answer;

@@ -1,4 +1,4 @@
-package ss.week4;
+package week4;
 
 public class Exercises {
     public static int countNegativeNumbers(int[] arr) {
@@ -10,7 +10,8 @@ public class Exercises {
     }
 
     class SimpleList {
-        public class Element {}
+        public class Element {
+        }
 
         public class Node {
             public Node next;

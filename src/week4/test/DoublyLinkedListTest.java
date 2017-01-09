@@ -1,10 +1,8 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week4.DoublyLinkedList;
-
-import static org.junit.Assert.assertEquals;
+import week4.DoublyLinkedList;
 
 public class DoublyLinkedListTest {
     private DoublyLinkedList<Object> list;

@@ -1,4 +1,4 @@
-package ss.week4;
+package week4;
 
 public class LinkedList<Element> {
 
@@ -6,7 +6,7 @@ public class LinkedList<Element> {
     private Node first;
 
     //@ ensures \result.size == 0;
-    public LinkedList () {
+    public LinkedList() {
         size = 0;
         first = null;
     }
@@ -17,7 +17,7 @@ public class LinkedList<Element> {
             newNode.next = first;
             first = newNode;
         } else {
-            Node p = getNode(index-1);
+            Node p = getNode(index - 1);
             newNode.next = p.next;
             p.next = newNode;
         }
@@ -31,6 +31,7 @@ public class LinkedList<Element> {
 
     public Node findBefore(Element element) {
         // TODO: implement, see exercise P-4.18
+        return null;
     }
 
     //@ requires 0 <= index && index < this.size();

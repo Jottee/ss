@@ -1,8 +1,8 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week4.LinkedList;
+import week4.LinkedList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
