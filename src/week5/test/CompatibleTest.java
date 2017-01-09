@@ -1,8 +1,8 @@
-package ss.week5.test;
+package week5.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week5.MapUtil;
+import week5.MapUtil;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -38,12 +38,16 @@ public class MapUtil {
     }
 
     public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
-        if ()
-            return null;
+        Map<V, K> res = new HashMap<V, K>();
+        for (K key : map.keySet()) {
+            V val = map.get(key);
+            res.put(val, key);
+        }
+        return res;
     }
 
     public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.4
+
         return false;
     }
 

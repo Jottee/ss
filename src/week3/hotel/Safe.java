@@ -1,6 +1,6 @@
 package week3.hotel;
 
-import week2.hotel.Password;
+import week3.pw.Password;
 
 /**
  * Created by jotte on 18-12-16.
@@ -10,7 +10,6 @@ public class Safe {
     private Password pass = new Password();
     private boolean active;
     private boolean open;
-    private Safe safe = new Safe();
 
     //@ requires !password.equals("");
     //@ ensures pass.testWord(password) ==> active == true;

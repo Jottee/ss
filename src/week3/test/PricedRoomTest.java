@@ -1,9 +1,9 @@
-package ss.week3.test;
+package week3.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week3.hotel.Bill;
-import ss.week3.hotel.PricedRoom;
+import week3.hotel.Bill;
+import week3.hotel.PricedRoom;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

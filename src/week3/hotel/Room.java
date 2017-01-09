@@ -4,8 +4,6 @@ package week3.hotel;
  * Created by jotte on 19-12-16.
  */
 
-import week2.hotel.Guest;
-
 /**
  * Hotel room with number and possibly a guest.
  *
@@ -24,9 +22,10 @@ public class Room {
     /**
      * Creates a <code>Room</code> with the given number, without a guest.
      *
-     * @param no number of the new <code>Room</code>
+     * @param no         number of the new <code>Room</code>
+     * @param pricedSafe
      */
-    public Room(int no) {
+    public Room(int no, PricedSafe pricedSafe) {
         number = no;
         this.safe = safe;
     }

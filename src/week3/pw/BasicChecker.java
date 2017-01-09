@@ -6,7 +6,7 @@ package week3.pw;
 
 public class BasicChecker implements Checker {
 
-    private static String INITPASS = "abcdef";
+    public static String INITPASS = "abcdef";
 
     public static String getINITPASS() {
         return INITPASS;

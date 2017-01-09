@@ -21,7 +21,7 @@ public class Bill {
     }
 
     //Methods
-    public void finish() {
+    public void close() {
         this.output.println(String.format("%-10s%10.2f\n", "Total", this.getSum()));
     }
 

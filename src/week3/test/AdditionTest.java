@@ -1,8 +1,8 @@
-package ss.week3.test;
+package week3.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week3.Addition;
+import week3.Addition;
 
 import static org.junit.Assert.assertEquals;
 

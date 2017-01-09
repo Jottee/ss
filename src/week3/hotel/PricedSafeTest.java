@@ -14,7 +14,7 @@ public class PricedSafeTest {
 
     private Bill.Item item;
     private static final double PRICE = 6.66;
-    private static final String PRICE_PATTERN = ".*6[.,]36.*";
+    private static final String PRICE_PATTERN = ".*6[.,]66.*";
 
     @Before
     public void setUp() throws Exception {
@@ -28,6 +28,7 @@ public class PricedSafeTest {
 
     @Test
     public void testToString() throws Exception {
+        System.out.println(item.toString());
         assertTrue("The price should be included.", item.toString().matches(PRICE_PATTERN));
     }
 }

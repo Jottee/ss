@@ -93,14 +93,23 @@ public class Hotel {
 
     }
 
-    public Bill getBill(String guest, int numberOfNights, PrintStream stream) {
-        if (room2 instanceof PricedRoom) {
-            return addBill(numberOfNights, stream, room2);
-        } else if (room instanceof PricedRoom) {
-            return addBill(numberOfNights, stream, room);
+    public Bill getBill(String guestName, int stayDuration, PrintStream stream) {
+        Bill bill = new Bill(stream);
+        Room room = this.getRoom(guestName);
+        if (room instanceof PricedRoom) {
+            Safe safe = room.getSafe();
+            for (int i = 0; i < stayDuration; i++) {
+                bill.newItem((PricedRoom) this.getRoom(guestName));
+            }
+            if (safe instanceof PricedSafe && safe.isActive()) {
+                bill.newItem((PricedSafe) safe);
+            }
+            bill.close();
+            return bill;
         } else {
             return null;
         }
+
     }
 
     public Password getPassword() {

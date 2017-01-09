@@ -12,12 +12,12 @@ public class Password {
     private String factoryPassword;
 
     public Password() {
-        BasicChecker.getINITPASS();
+        checker = new BasicChecker();
     }
 
 
     public boolean acceptable(String p) {
-        return (p.length() >= 6 && !p.contains(" "));
+        return checker.acceptable(p);
     }
 
     public Password(Checker check) {

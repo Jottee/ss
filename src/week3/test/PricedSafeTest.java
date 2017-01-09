@@ -1,11 +1,12 @@
-package ss.week3.test;
+package week3.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week3.hotel.Bill;
-import ss.week3.hotel.PricedSafe;
+import week3.hotel.Bill;
+import week3.hotel.PricedSafe;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PricedSafeTest {
 
