@@ -1,4 +1,4 @@
-package ss.week4;
+package week4;
 
 public class DoublyLinkedList<Element> {
 
@@ -18,17 +18,27 @@ public class DoublyLinkedList<Element> {
     //@ ensures this.size == \old(size) + 1;
     //@ ensures this.getNode(index).equals(element);
     public void add(int index, Element element) {
-        // TODO: implement, see exercise P-4.17
+        Node n = new Node(element);
+        Node p = getNode(index - 1);
+        n.next = p.next;
+        n.previous = p;
+        p.next = n;
+        size++;
     }
 
     //@ requires 0 <= index && index < this.size;
     //@ ensures this.size == \old(size) - 1;
     public void remove(int index) {
-        // TODO: implement, see exercise P-4.17
+        Node n = getNode(index + 1);
+        Node p = getNode(index - 1);
+        p.next = n;
+        n.previous = p;
+        size--;
     }
 
     //@ requires 0 <= index && index < this.size;
-    /*@ pure */ public Element get(int index) {
+    /*@ pure */
+    public Element get(int index) {
         Node p = getNode(index);
         return p.element;
     }
@@ -52,6 +62,7 @@ public class DoublyLinkedList<Element> {
     public int size() {
         return this.size;
     }
+
     public class Node {
         public Node(Element element) {
             this.element = element;

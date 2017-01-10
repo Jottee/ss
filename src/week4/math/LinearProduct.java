@@ -3,31 +3,30 @@ package week4.math;
 /**
  * Created by jotte on 22-12-16.
  */
-public class LinearProduct implements Function {
-    private Function fun1;
-    private Function fun2;
+public class LinearProduct extends Product implements Function {
 
-    public LinearProduct(Function f1, Function f2) {
-        fun1 = f1;
-        fun2 = f2;
+    private Function f1;
+    private Constant cons;
+
+    public LinearProduct(Function f1, Constant c) {
+        super(f1, c);
+        this.f1 = f1;
+        this.cons = c;
     }
 
-    @Override
-    public double apply(double xvalue) {
-        return fun1.apply(xvalue) * fun2.apply(xvalue);
-    }
-
-    @Override
     public Function derivative() {
-        return new Product(fun1.derivative(), fun2.derivative());
+        return new LinearProduct(f1.derivative(), cons);
     }
 
-    @Override
-    public String toString() {
-        return "LinearProduct{" +
-                "fun1=" + fun1 +
-                ", fun2=" + fun2 +
-                '}';
+    public Function integrand() {
+        Function a = null;
+        if (f1 instanceof Integrandable) {
+            Integrandable integ = (Integrandable) f1;
+            a = new Product(cons, (Constant) integ.integrand());
+        }
+        return a;
+
     }
+
 }
 

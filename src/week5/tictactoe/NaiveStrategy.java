@@ -1,5 +1,7 @@
 package week5.tictactoe;
 
+import java.util.LinkedList;
+
 /**
  * Created by jotte on 9-1-17.
  */
@@ -12,6 +14,13 @@ public class NaiveStrategy implements Strategy {
 
     @Override
     public int determineMove(Board b, Mark m) {
-        return 0;
+        LinkedList<Integer> emptyFields = new LinkedList<Integer>();
+        for (int i = 0; i < b.DIM * b.DIM; i++) {
+            if (b.isEmptyField(i)) {
+                emptyFields.add(i);
+            }
+        }
+        int r = (int) (Math.random()) * emptyFields.size();
+        return emptyFields.get(r);
     }
 }
