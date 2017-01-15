@@ -9,14 +9,14 @@ package week5.tictactoe;
  */
 public class TicTacToe {
     public static void main(String[] args) {
-        Strategy strat = null;
+        Strategy strategy = null;
         for (String arg : args) {
             if (arg.equals("-n")) {
-                strat = new NaiveStrategy();
+                strategy = new NaiveStrategy();
             } else if (arg.equals("-s")) {
-                strat = new NaiveStrategy();
+                strategy = new NaiveStrategy();
             }
-            Player s0 = new ComputerPlayer(Mark.OO, strat);
+            Player s0 = new ComputerPlayer(Mark.OO, strategy);
             Player s1 = new HumanPlayer(args[1], Mark.XX);
             Game game = new Game(s0, s1);
             game.start();
