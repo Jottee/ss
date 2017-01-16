@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  * @author Martin Kalin, aangepast door Arend Rensink
  * @version 15-01-2002
  */
-class MandelPanel extends JPanel
+class MandelPanel extends JPanel implements Runnable
 {
 	public void draw() {
 		(new MandelThread(this)).start();
@@ -110,5 +110,10 @@ class MandelPanel extends JPanel
 			}
 		}
 		COLORS[MAX_COLORS] = Color.white;
+	}
+
+	@Override
+	public void run() {
+		drawMandel();
 	}
 }

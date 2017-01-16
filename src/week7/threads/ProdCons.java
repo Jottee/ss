@@ -1,5 +1,8 @@
 package ss.week7.threads;
 
+import week7.threads.FinegrainedIntCell;
+import week7.threads.SynchronizedIntCell;
+
 /**
  * Main class for Producer/Consumer program illustrating
  * multiple threads modifying a shared object. 
@@ -11,7 +14,7 @@ package ss.week7.threads;
  */
 public class ProdCons {
 	public static void main(String[] args) {
-		IntCell cell = new UnsynchronizedIntCell();
+		FinegrainedIntCell cell = new FinegrainedIntCell();
 		Thread prod1 = new IntProducer(1, cell);
 		Thread prod2 = new IntProducer(2, cell);
 		Thread cons1 = new IntConsumer(1, cell);
