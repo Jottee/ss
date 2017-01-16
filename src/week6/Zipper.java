@@ -1,4 +1,4 @@
-package ss.week6;
+package week6;
 
 public class Zipper {
     /*@
@@ -9,11 +9,14 @@ public class Zipper {
         String result = "";
         for (int i = 0; i < s1.length(); i++) {
             result += Character.toString(s1.charAt(i))
-                      + Character.toString(s2.charAt(i));
+                    + Character.toString(s2.charAt(i));
         }
         return result;
     }
-    
+
+    public static String zip2(String s1, String s2) {
+        
+    }
 
     public static void main(String[] args) {
         String s1 = args.length >= 1 ? args[0] : null;
