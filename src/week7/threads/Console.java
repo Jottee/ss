@@ -1,4 +1,4 @@
-package ss.week7.threads;
+package week7.threads;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class Console {
     }
 
     /**
-     * Reads a line from the default input. 
+     * Reads a line from the default input.
      * @param  text question
      * @return read text (never null)
      */

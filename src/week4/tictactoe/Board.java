@@ -29,6 +29,7 @@ public class Board {
      */
     //@ ensures (\forall int i; 0 <= i & i < DIM * DIM; this.getField(i) == Mark.EMPTY);
     public Board() {
+        fields = new Mark[DIM * DIM];
         for (int i = 0; i < DIM * DIM; i++) {
             fields[i] = Mark.EMPTY;
         }
@@ -245,7 +246,7 @@ public class Board {
         int j = DIM - 1;
         for (int i = 0; i < DIM; i++) {
             if (!(fields[index(j, i)] == m)) {
-                hasdiag1 = false;
+                hasdiag2 = false;
             }
             j--;
         }

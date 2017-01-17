@@ -1,15 +1,15 @@
-package ss.week7.cmdline;
+package week7.cmdline;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 /**
  * Peer for a simple client-server application
- * @author  Theo Ruys
+ *
+ * @author Theo Ruys
  * @version 2005.02.21
  */
 public class Peer implements Runnable {
@@ -24,13 +24,14 @@ public class Peer implements Runnable {
     /*@
        requires (nameArg != null) && (sockArg != null);
      */
+
     /**
      * Constructor. creates a peer object based in the given parameters.
-     * @param   nameArg name of the Peer-proces
-     * @param   sockArg Socket of the Peer-proces
+     *
+     * @param nameArg name of the Peer-proces
+     * @param sockArg Socket of the Peer-proces
      */
-    public Peer(String nameArg, Socket sockArg) throws IOException
-    {
+    public Peer(String nameArg, Socket sockArg) throws IOException {
     }
 
     /**
@@ -55,12 +56,16 @@ public class Peer implements Runnable {
     public void shutDown() {
     }
 
-    /**  returns name of the peer object*/
+    /**
+     * returns name of the peer object
+     */
     public String getName() {
         return name;
     }
 
-    /** read a line from the default input */
+    /**
+     * read a line from the default input
+     */
     static public String readString(String tekst) {
         System.out.print(tekst);
         String antw = null;

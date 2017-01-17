@@ -1,4 +1,4 @@
-package ss.week7;
+package week7;
 
 public class IntCell {
     private int contents = 0;
@@ -6,6 +6,7 @@ public class IntCell {
     public void add(int amount) {
         contents = contents + amount;
     }
+
     public int get() {
         return contents;
     }
@@ -34,6 +35,7 @@ class Adder extends Thread {
         this.cell = cellArg;
         this.amount = amountArg;
     }
+
     public void run() {
         cell.add(amount);
     }

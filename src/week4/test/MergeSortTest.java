@@ -1,7 +1,7 @@
-package ss.week4.test;
+package week4.test;
 
 import org.junit.Test;
-import ss.week4.MergeSort;
+import week4.MergeSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

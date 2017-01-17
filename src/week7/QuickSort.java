@@ -1,10 +1,11 @@
-package ss.week7;
+package week7;
 
 
 public class QuickSort {
     public static void qsort(int[] a) {
         qsort(a, 0, a.length - 1);
     }
+
     public static void qsort(int[] a, int first, int last) {
         if (first < last) {
             int position = partition(a, first, last);
@@ -12,6 +13,7 @@ public class QuickSort {
             qsort(a, position + 1, last);
         }
     }
+
     public static int partition(int[] a, int first, int last) {
 
         int mid = (first + last) / 2;
@@ -29,6 +31,7 @@ public class QuickSort {
         swap(a, pi, last); // put pivot in its place "in the middle"
         return pi;
     }
+
     public static void swap(int[] a, int i, int j) {
         int tmp = a[i];
         a[i] = a[j];

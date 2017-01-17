@@ -1,120 +1,142 @@
+package week7.challenge.chatbox;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class ServerGUI extends JFrame implements ActionListener, MessageUI {
-	private JButton bConnect;
-	private JTextField tfPort;
-	private JTextArea taMessages;
-	private Server server;
+    private JButton bConnect;
+    private JTextField tfPort;
+    private JTextArea taMessages;
+    private Server server;
 
-	/** Constructs a ServerGUI object. */
-	public ServerGUI() {
-		super("ServerGUI");
+    /**
+     * Constructs a ServerGUI object.
+     */
+    public ServerGUI() {
+        super("ServerGUI");
 
-		buildGUI();
-		setVisible(true);
+        buildGUI();
+        setVisible(true);
 
-		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				e.getWindow().dispose();
-			}
-			public void windowClosed(WindowEvent e) {
-				System.exit(0);
-			}
-		});
-	}
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                e.getWindow().dispose();
+            }
 
-	/** Builds the GUI. */
-	public void buildGUI() {
-		setSize(400, 400);
+            public void windowClosed(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
 
-		// Panel p1 - Listen
+    /**
+     * Builds the GUI.
+     */
+    public void buildGUI() {
+        setSize(400, 400);
 
-		JPanel p1 = new JPanel(new FlowLayout());
-		JPanel pp = new JPanel(new GridLayout(2, 2));
+        // Panel p1 - Listen
 
-		JLabel lbAddress = new JLabel("Address: ");
-		JTextField tfAddress = new JTextField(getHostAddress(), 12);
-		tfAddress.setEditable(false);
+        JPanel p1 = new JPanel(new FlowLayout());
+        JPanel pp = new JPanel(new GridLayout(2, 2));
 
-		JLabel lbPort = new JLabel("Port:");
-		tfPort = new JTextField("2727", 5);
+        JLabel lbAddress = new JLabel("Address: ");
+        JTextField tfAddress = new JTextField(getHostAddress(), 12);
+        tfAddress.setEditable(false);
 
-		pp.add(lbAddress);
-		pp.add(tfAddress);
-		pp.add(lbPort);
-		pp.add(tfPort);
+        JLabel lbPort = new JLabel("Port:");
+        tfPort = new JTextField("2727", 5);
 
-		bConnect = new JButton("Start Listening");
-		bConnect.addActionListener(this);
+        pp.add(lbAddress);
+        pp.add(tfAddress);
+        pp.add(lbPort);
+        pp.add(tfPort);
 
-		p1.add(pp, BorderLayout.WEST);
-		p1.add(bConnect, BorderLayout.EAST);
+        bConnect = new JButton("Start Listening");
+        bConnect.addActionListener(this);
 
-		// Panel p2 - Messages
+        p1.add(pp, BorderLayout.WEST);
+        p1.add(bConnect, BorderLayout.EAST);
 
-		JPanel p2 = new JPanel();
-		p2.setLayout(new BorderLayout());
+        // Panel p2 - Messages
 
-		JLabel lbMessages = new JLabel("Messages:");
-		taMessages = new JTextArea("", 15, 50);
-		taMessages.setEditable(false);
-		p2.add(lbMessages);
-		p2.add(taMessages, BorderLayout.SOUTH);
+        JPanel p2 = new JPanel();
+        p2.setLayout(new BorderLayout());
 
-		Container cc = getContentPane();
-		cc.setLayout(new FlowLayout());
-		cc.add(p1);
-		cc.add(p2);
-	}
+        JLabel lbMessages = new JLabel("Messages:");
+        taMessages = new JTextArea("", 15, 50);
+        taMessages.setEditable(false);
+        p2.add(lbMessages);
+        p2.add(taMessages, BorderLayout.SOUTH);
 
-	/** returns the Internetadress of this computer */
-	private String getHostAddress() {
-		try {
-			InetAddress iaddr = InetAddress.getLocalHost();
-			return iaddr.getHostAddress();
-		} catch (UnknownHostException e) {
-			return "?unknown?";
-		}
-	}
+        Container cc = getContentPane();
+        cc.setLayout(new FlowLayout());
+        cc.add(p1);
+        cc.add(p2);
+    }
 
-	/**
-	 * listener for the "Start Listening" button
-	 */
-	public void actionPerformed(ActionEvent ev) {
-		Object src = ev.getSource();
-		if (src == bConnect) {
-			startListening();
-		}
-	}
+    /**
+     * returns the Internetadress of this computer
+     */
+    private String getHostAddress() {
+        try {
+            InetAddress iaddr = InetAddress.getLocalHost();
+            return iaddr.getHostAddress();
+        } catch (UnknownHostException e) {
+            return "?unknown?";
+        }
+    }
 
-	/**
-	 * Construct a Server-object, which is waiting for clients. 
-	 * The port field and button should be disabled
-	 */
-	private void startListening() {
-		int port = 0;
+    /**
+     * listener for the "Start Listening" button
+     */
+    public void actionPerformed(ActionEvent ev) {
+        Object src = ev.getSource();
+        if (src == bConnect) {
+            startListening();
+        }
+    }
 
-		try {
-			port = Integer.parseInt(tfPort.getText());
-		} catch (NumberFormatException e) {
-			addMessage("ERROR: not a valid portnumber!");
-			return;
-		}
+    /**
+     * Construct a Server-object, which is waiting for clients.
+     * The port field and button should be disabled
+     */
+    private void startListening() {
+        int port = 0;
 
-		tfPort.setEditable(false);
-		bConnect.setEnabled(false);
+        try {
+            port = Integer.parseInt(tfPort.getText());
+        } catch (NumberFormatException e) {
+            addMessage("ERROR: not a valid portnumber!");
+            return;
+        }
 
-		server = new Server(port, this);
-		server.start();
+        tfPort.setEditable(false);
+        bConnect.setEnabled(false);
 
-		addMessage("Started listening on port " + port + "...");
-	}
+        server = new Server(port, this);
+        server.start();
 
-	/** add a message to the textarea  */
-	public void addMessage(String msg) {
-		taMessages.append(msg + "\n");
-	}
+        addMessage("Started listening on port " + port + "...");
+    }
 
-	/** Start a ServerGUI application */
-	public static void main(String[] args) {
-		new ServerGUI();
-	}
+    /**
+     * add a message to the textarea
+     */
+    public void addMessage(String msg) {
+        taMessages.append(msg + "\n");
+    }
+
+    /**
+     * Start a ServerGUI application
+     */
+    public static void main(String[] args) {
+        new ServerGUI();
+    }
 }

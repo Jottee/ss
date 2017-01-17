@@ -7,7 +7,7 @@ public class MapUtil {
     //@requires  map.size() >= 0;
     //@ensures \result ? map.keySet().size() <= map.size() : map.keySet().size() > map.size()
     public static <K, V> boolean isOneOnOne(Map<K, V> map) {
-        return map.keySet().size() <= map.size();
+        return map.keySet().size() == inverse(map).keySet().size();
     }
 
 
@@ -23,16 +23,19 @@ public class MapUtil {
     }
 
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
-        Set<K> allKeys = new HashSet<K>();
+        Set<K> allKeys = new HashSet<>();
         for (K key : map.keySet())
             allKeys.add(key);
-        Map<V, Set<K>> inverseMap = new HashMap<V, Set<K>>();
-        List<V> allValues = new ArrayList<V>();
+        Map<V, Set<K>> inverseMap = new HashMap<>();
+        List<V> allValues = new ArrayList<>();
         for (K key : allKeys) {
             allValues.add(map.get(key));
         }
         for (V vally : allValues) {
-            inverseMap.put(vally, allKeys);
+            inverseMap.put(vally, new HashSet<K>());
+        }
+        for (K key : allKeys) {
+            inverseMap.get(map.get(key)).add(key);
         }
         return inverseMap;
     }

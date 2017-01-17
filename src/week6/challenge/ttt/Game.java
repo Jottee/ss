@@ -1,14 +1,13 @@
-package ss.week6.challenge.ttt;
+package week6.challenge.ttt;
 
 
 /**
  * Class for maintaining the Tic Tac Toe game. Lab assignment Module 2
- * 
+ *
  * @author Theo Ruys en Arend Rensink
  * @version $Revision: 1.4 $
  */
-public class Game
-{
+public class Game {
 
     // -- Instance variables -----------------------------------------
 
@@ -65,10 +64,12 @@ public class Game
        requires 0 <= i & i < Board.DIM * Board.DIM;
        requires this.getBoard().isEmptyField(i);
      */
+
     /**
-     * Sets the current mark in field i. 
+     * Sets the current mark in field i.
      * Passes the turn to the other mark.
-     * @param    i the index of the field where to place the mark
+     *
+     * @param i the index of the field where to place the mark
      */
     public void takeTurn(int i) {
         board.setField(i, current);

@@ -1,4 +1,4 @@
-package ss.week7.cmdline;
+package week7.cmdline;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,14 +7,17 @@ import java.net.UnknownHostException;
 
 /**
  * Client class for a simple client-server application
- * @author  Theo Ruys
+ *
+ * @author Theo Ruys
  * @version 2005.02.21
  */
 public class Client {
     private static final String USAGE
-        = "usage: java week7.cmdline.Client <name> <address> <port>";
+            = "usage: java week7.cmdline.Client <name> <address> <port>";
 
-    /** Starts a Client application. */
+    /**
+     * Starts a Client application.
+     */
     public static void main(String[] args) {
         if (args.length != 3) {
             System.out.println(USAGE);
@@ -41,7 +44,7 @@ public class Client {
         } catch (NumberFormatException e) {
             System.out.println(USAGE);
             System.out.println("ERROR: port " + args[2]
-            		           + " is not an integer");
+                    + " is not an integer");
             System.exit(0);
         }
 

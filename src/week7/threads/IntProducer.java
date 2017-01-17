@@ -1,35 +1,36 @@
-package ss.week7.threads;
+package week7.threads;
 
 /**
  * ProduceInteger class for Producer/Consumer program.
+ *
  * @author Revision by Rieks op den Akker
  * @version january 2002
  */
 
 public class IntProducer extends Thread {
-	private int nr;
-	private IntCell cell;
+    private int nr;
+    private IntCell cell;
 
-	public IntProducer(int nrArg, IntCell cellArg) {
-		super("Producer " + nrArg);
-		this.nr = nrArg;
-		this.cell = cellArg;
-	}
+    public IntProducer(int nrArg, IntCell cellArg) {
+        super("Producer " + nrArg);
+        this.nr = nrArg;
+        this.cell = cellArg;
+    }
 
-	public void run() {
-		for (int i = 0; i < 10; i++) {
-			try {
-				Thread.sleep((int) (Math.random() * 3000));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			int val = 10 * nr + i;
-			System.out.println(getName() + ": " + val + " written");
-			cell.setValue(val);
-		}
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            try {
+                Thread.sleep((int) (Math.random() * 3000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            int val = 10 * nr + i;
+            System.out.println(getName() + ": " + val + " written");
+            cell.setValue(val);
+        }
 
-		System.out.println(getName() + ": end");
-	}
+        System.out.println(getName() + ": end");
+    }
 }
 
 /**************************************************************************

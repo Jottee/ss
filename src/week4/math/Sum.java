@@ -4,12 +4,12 @@ package week4.math;
  * Created by jotte on 22-12-16.
  */
 public class Sum implements Function {
-    private Function fun1;
-    private Function fun2;
+    public Function fun1;
+    public Function fun2;
 
     public Sum(Function f1, Function f2) {
-        fun1 = f1;
-        fun2 = f2;
+        this.fun1 = f1;
+        this.fun2 = f2;
     }
 
     @Override

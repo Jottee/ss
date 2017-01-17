@@ -1,7 +1,7 @@
-package ss.week7.test;
+package week7.test;
 
 import org.junit.Test;
-import ss.week7.QuickSort;
+import week7.QuickSort;
 
 public class QuickSortTest {
 

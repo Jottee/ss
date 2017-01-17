@@ -1,8 +1,8 @@
-package ss.week6.test;
+package week6.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week6.cards.Card;
+import week6.cards.Card;
 
 import java.io.*;
 
@@ -12,15 +12,20 @@ import static org.junit.Assert.assertEquals;
 /**
  * Testprogram for the write and read methods in Card.
  * Lab Exercise SoftwareSystems
+ *
  * @author Jip Spel
  * @version $Revision: 1.0 $
  */
 public class CardTest {
 
-    /** Testvariabele for a <tt>Card</tt> object. */
+    /**
+     * Testvariabele for a <tt>Card</tt> object.
+     */
     private Card card;
 
-    /** Path to where you will save the card files */
+    /**
+     * Path to where you will save the card files
+     */
     private static final String PATH = ""; //Your path to the test folder
 
     @Before
@@ -28,7 +33,9 @@ public class CardTest {
         card = new Card('H', 'J');
     }
 
-    /** Test for writing and reading a card with text files.*/
+    /**
+     * Test for writing and reading a card with text files.
+     */
     @Test
     public void testReadingWritingFiles() {
         try {
@@ -46,7 +53,9 @@ public class CardTest {
         }
     }
 
-    /** Test for writing and reading a card with data files.*/
+    /**
+     * Test for writing and reading a card with data files.
+     */
     @Test
     public void testReadingWritingData() {
         try {
@@ -64,7 +73,9 @@ public class CardTest {
         }
     }
 
-    /** Test for writing and reading a card with object files.*/
+    /**
+     * Test for writing and reading a card with object files.
+     */
     @Test
     public void testReadingWritingObject() {
         try {
@@ -78,6 +89,8 @@ public class CardTest {
             assertEquals(card, card2);
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

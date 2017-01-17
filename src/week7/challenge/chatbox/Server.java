@@ -1,17 +1,14 @@
-package ss.week7.challenge.chatbox;
+package week7.challenge.chatbox;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.Collection;
-import java.util.Vector;
 
 /**
  * P2 prac wk5. <br>
- * Server. A Thread class that listens to a socket connection on a 
- * specified port. For every socket connection with a Client, a new 
- * ClientHandler thread is started. 
- * @author  Theo Ruys
+ * Server. A Thread class that listens to a socket connection on a
+ * specified port. For every socket connection with a Client, a new
+ * ClientHandler thread is started.
+ *
+ * @author Theo Ruys
  * @version 2005.02.21
  */
 public class Server extends Thread {
@@ -19,13 +16,15 @@ public class Server extends Thread {
     private MessageUI mui;
     private Collection<ClientHandler> threads;
 
-    /** Constructs a new Server object */
+    /**
+     * Constructs a new Server object
+     */
     public Server(int portArg, MessageUI muiArg) {
         // TODO Add implementation
     }
 
     /**
-     * Listens to a port of this Server if there are any Clients that 
+     * Listens to a port of this Server if there are any Clients that
      * would like to connect. For every new socket connection a new
      * ClientHandler thread is started that takes care of the further
      * communication with the Client.
@@ -37,6 +36,7 @@ public class Server extends Thread {
     /**
      * Sends a message using the collection of connected ClientHandlers
      * to all connected Clients.
+     *
      * @param msg message that is send
      */
     public void broadcast(String msg) {
@@ -45,6 +45,7 @@ public class Server extends Thread {
 
     /**
      * Add a ClientHandler to the collection of ClientHandlers.
+     *
      * @param handler ClientHandler that will be added
      */
     public void addHandler(ClientHandler handler) {
@@ -52,7 +53,8 @@ public class Server extends Thread {
     }
 
     /**
-     * Remove a ClientHandler from the collection of ClientHanlders. 
+     * Remove a ClientHandler from the collection of ClientHanlders.
+     *
      * @param handler ClientHandler that will be removed
      */
     public void removeHandler(ClientHandler handler) {

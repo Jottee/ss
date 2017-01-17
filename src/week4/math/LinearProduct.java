@@ -5,24 +5,20 @@ package week4.math;
  */
 public class LinearProduct extends Product implements Function {
 
-    private Function f1;
-    private Constant cons;
-
-    public LinearProduct(Function f1, Constant c) {
-        super(f1, c);
-        this.f1 = f1;
-        this.cons = c;
+    public LinearProduct(Constant f1, Function f2) {
+        super(f1, f2);
     }
 
     public Function derivative() {
-        return new LinearProduct(f1.derivative(), cons);
+
+        return new LinearProduct((Constant) f1, f2.derivative());
     }
 
     public Function integrand() {
         Function a = null;
-        if (f1 instanceof Integrandable) {
-            Integrandable integ = (Integrandable) f1;
-            a = new Product(cons, (Constant) integ.integrand());
+        if (f2 instanceof Integrandable) {
+            Integrandable integ = (Integrandable) f2;
+            a = new Product(f1, integ.integrand());
         }
         return a;
 

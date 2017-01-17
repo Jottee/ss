@@ -1,34 +1,35 @@
-package ss.week7.threads;
+package week7.threads;
 
 /**
  * ConsumeInteger class for Producer/Consumer program.
+ *
  * @author Revirion by Rieks op den Akker
  * @version january 2002
  */
 public class IntConsumer extends Thread {
-	private IntCell cell;
+    private IntCell cell;
 
-	public IntConsumer(int nr, IntCell cellArg) {
-		super("Consumer " + nr);
-		this.cell = cellArg;
-	}
+    public IntConsumer(int nr, IntCell cellArg) {
+        super("Consumer " + nr);
+        this.cell = cellArg;
+    }
 
-	public void run() {
-		int val;
-		do {
-			// sleep for a random interval
-			try {
-				Thread.sleep((int) (Math.random() * 3000));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+    public void run() {
+        int val;
+        do {
+            // sleep for a random interval
+            try {
+                Thread.sleep((int) (Math.random() * 3000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-			val = cell.getValue();
-			System.out.println(getName() + ": " + val + " read");
-		} while (val != -1);
+            val = cell.getValue();
+            System.out.println(getName() + ": " + val + " read");
+        } while (val != -1);
 
-		System.out.println(getName() + ": end");
-	}
+        System.out.println(getName() + ": end");
+    }
 }
 
 /**************************************************************************

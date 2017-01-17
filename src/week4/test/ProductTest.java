@@ -2,6 +2,7 @@ package week4.test;
 
 import org.junit.Before;
 import org.junit.Test;
+import week4.math.Constant;
 import week4.math.Product;
 import week4.math.Sum;
 
@@ -16,7 +17,7 @@ public class ProductTest {
 
     @Before
     public void setUp() {
-        product = new Product(f1, c);
+        product = new Product(new Constant(CONSTANT_VALUE), new Constant(CONSTANT_VALUE));
     }
 
     @Test

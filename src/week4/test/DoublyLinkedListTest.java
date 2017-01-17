@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import week4.DoublyLinkedList;
 
+import static org.junit.Assert.assertEquals;
+
 public class DoublyLinkedListTest {
     private DoublyLinkedList<Object> list;
     private Object object1;

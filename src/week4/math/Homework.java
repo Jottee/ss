@@ -5,12 +5,12 @@ package week4.math;
  */
 public class Homework {
     public static void main(String[] args) {
-        LinearProduct f1 = new LinearProduct(new Exponent(4), new Constant(4));
+        LinearProduct f1 = new LinearProduct(new Constant(4), new Exponent(4));
         Function f2 = f1.integrand();
         Function f3 = f1.derivative();
-        System.out.println("f(x) = " + f1 + ", f(8) = " + f1.apply(8));
-        System.out.println("f(x) = " + f1 + ", F(x) = " + f2);
-        System.out.println("f(x) = " + f1 + ", f'x() = " + f3);
+        System.out.println("f(x) = " + f1.toString() + ", f(8) = " + f1.apply(8));
+        System.out.println("f(x) = " + f1.toString() + ", F(x) = " + f2.toString());
+        System.out.println("f(x) = " + f1.toString() + ", f'x() = " + f3.toString());
 
     }
 

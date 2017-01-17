@@ -4,8 +4,8 @@ package week4.math;
  * Created by jotte on 22-12-16.
  */
 public class Product implements Function {
-    private Function f1;
-    private Function f2;
+    protected Function f1;
+    protected Function f2;
 
     public Product(Function f1, Function f2) {
         this.f1 = f1;

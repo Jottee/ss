@@ -1,22 +1,25 @@
-package ss.week6.test;
+package week6.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week6.ArgumentLengthsDifferException;
-import ss.week6.TooFewArgumentsException;
-import ss.week6.Zipper;
+import week6.ArgumentLengthsDifferException;
+import week6.TooFewArgumentsException;
+import week6.Zipper;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Testprogram for Zipper.
  * Lab Exercise SoftwareSystems
+ *
  * @author Jip Spel
  * @version $Revision: 1.0 $
  */
 public class ZipperTest {
 
-    /** Testvariabele for a <tt>DollarsAndCentsCounter</tt> object. */
+    /**
+     * Testvariabele for a <tt>DollarsAndCentsCounter</tt> object.
+     */
     private Zipper zipper;
 
     @Before
@@ -27,29 +30,29 @@ public class ZipperTest {
     /**
      * Test for zipping with too few arguments
      */
-    @Test(expected=TooFewArgumentsException.class)
-    public void testFirstArgumentNull() throws TooFewArgumentsException, ArgumentLengthsDifferException {
+    @Test(expected = TooFewArgumentsException.class)
+    public void testFirstArgumentNull() throws Exception {
         zipper.zip2(null, "Hello World!");
     }
 
     /**
      * Test for zipping with too few arguments
      */
-    @Test(expected=TooFewArgumentsException.class)
-    public void testSecondArgumentNull() throws TooFewArgumentsException, ArgumentLengthsDifferException {
+    @Test(expected = TooFewArgumentsException.class)
+    public void testSecondArgumentNull() throws Exception {
         zipper.zip2("Hello World!", null);
     }
 
     /**
      * Test for zipping with arguments of different length
      */
-    @Test(expected=ArgumentLengthsDifferException.class)
-    public void testDifferentArgumentLengths() throws ArgumentLengthsDifferException, TooFewArgumentsException {
+    @Test(expected = ArgumentLengthsDifferException.class)
+    public void testDifferentArgumentLengths() throws Exception {
         zipper.zip2("Hello World!", "Hello World");
     }
 
     @Test
-    public void testCorrectInput() throws ArgumentLengthsDifferException, TooFewArgumentsException {
+    public void testCorrectInput() throws Exception {
         assertEquals("HelloWorld", zipper.zip2("Hlool", "elWrd"));
     }
 

@@ -1,15 +1,14 @@
-package ss.week7.challenge.chatbox;
+package week7.challenge.chatbox;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 /**
  * ClientHandler.
- * @author  Theo Ruys
+ *
+ * @author Theo Ruys
  * @version 2005.02.21
  */
 public class ClientHandler extends Thread {
@@ -23,14 +22,15 @@ public class ClientHandler extends Thread {
     /**
      * Constructs a ClientHandler object
      * Initialises both Data streams.
-     *@ requires server != null && sock != null;
+     *
+     * @ requires server != null && sock != null;
      */
     public ClientHandler(Server serverArg, Socket sockArg) throws IOException {
         // TODO Add implementation
     }
 
     /**
-     * Reads the name of a Client from the input stream and sends 
+     * Reads the name of a Client from the input stream and sends
      * a broadcast message to the Server to signal that the Client
      * is participating in the chat. Notice that this method should
      * be called immediately after the ClientHandler has been constructed.

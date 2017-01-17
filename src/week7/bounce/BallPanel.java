@@ -1,10 +1,11 @@
-package ss.week7.bounce;
+package week7.bounce;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ListIterator;
+import javax.swing.Timer;
 
 import javax.swing.JPanel;
 
@@ -14,10 +15,23 @@ import javax.swing.JPanel;
  * @version 2005.02.22
  */
 public class BallPanel extends JPanel implements ActionListener {
+
+	private class AnimateThread extends Thread {
+		@Override
+		public void run() {
+			animate();
+		}
+	}
+
 	private List<Ball> balls; // @invariant balls != null
+
+	private Timer timer = new Timer(1, this);
 
 	public BallPanel() {
 		balls = new java.util.ArrayList<Ball>();
+		AnimateThread animateThread = new AnimateThread();
+//		animateThread.start();
+		timer.start();
 	}
 
 	/**
@@ -47,8 +61,8 @@ public class BallPanel extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * Move all balls 
-	 * BEWARE: collision effects are not respecting Snellius' law. 
+	 * Move all balls
+	 * BEWARE: collision effects are not respecting Snellius' law.
 	 */
 	public synchronized void moveBalls() {
 		for (Ball b : balls) {

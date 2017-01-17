@@ -1,22 +1,19 @@
 
-package ss.week7.cmdline;
-
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+package week7.cmdline;
 
 /**
- * Server. 
- * @author  Theo Ruys
+ * Server.
+ *
+ * @author Theo Ruys
  * @version 2005.02.21
  */
 public class Server {
     private static final String USAGE
-        = "usage: " + Server.class.getName() + " <name> <port>";
+            = "usage: " + Server.class.getName() + " <name> <port>";
 
-    /** Starts a Server-application. */
+    /**
+     * Starts a Server-application.
+     */
     public static void main(String[] args) {
     }
 

@@ -6,27 +6,27 @@ package week5.tictactoe;
 public class ComputerPlayer extends Player {
 
 
-    private Strategy strategy;
+    private Strategy myStrategy;
     private Mark mark;
+
 
     public ComputerPlayer(Mark mark, Strategy strategy) {
         super(strategy.getName() + "-" + mark.name(), mark);
-        this.strategy = strategy;
-
+        this.myStrategy = strategy;
     }
 
     public ComputerPlayer(Mark mark) {
         super(new NaiveStrategy().getName() + "-" + mark.name(), mark);
-        this.strategy = new NaiveStrategy();
+        this.myStrategy = new NaiveStrategy();
     }
 
     @Override
     public int determineMove(Board board) {
-        return strategy.determineMove(board, mark);
+        return myStrategy.determineMove(board, mark);
     }
 
     @Override
     public String getName() {
-        return "" + strategy.getName() + "-" + mark.name();
+        return "" + myStrategy.getName() + "-" + mark.name();
     }
 }

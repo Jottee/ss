@@ -4,12 +4,12 @@ package week4.math;
  * Created by jotte on 10-1-17.
  */
 public class Polynomial implements Function {
-    private LinearProduct[] linProd;
+    public LinearProduct[] linProd;
 
     public Polynomial(double[] values) {
         linProd = new LinearProduct[values.length];
         for (int i = 0; i < values.length; i++) {
-            linProd[i] = new LinearProduct(new Exponent((int) values[i]), new Constant(i + 2));
+            linProd[i] = new LinearProduct(new Constant(i + 2), new Exponent((int) values[i]));
         }
     }
 
@@ -26,11 +26,15 @@ public class Polynomial implements Function {
 
     @Override
     public Function derivative() {
-        Function a = new Constant(0);
+        Function f = null;
         for (int i = 0; i < linProd.length; i++) {
-            a = new Sum(a, linProd[i].derivative());
+            if (f == null) {
+                f = linProd[i].derivative();
+            } else {
+                f = new Sum(f, linProd[i].derivative());
+            }
         }
-        return a;
+        return f;
     }
 
     @Override
@@ -46,9 +50,14 @@ public class Polynomial implements Function {
     }
 
     public Function integrand() {
-        Function a = new Constant(0);
+        Function a = null;
         for (int i = 0; i < linProd.length; i++) {
-            a = new Sum(linProd[i].integrand(), a);
+            if (a == null) {
+                a = linProd[i].integrand();
+            } else {
+                a = new Sum(linProd[i].integrand(), a);
+            }
+
         }
         return a;
     }
